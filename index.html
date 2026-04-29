@@ -376,7 +376,15 @@
       color: var(--ink-muted);
     }
 
-    /* ── Mobile refinements ── */
+    nav { display: flex; gap: 0; }
+    nav a { font-size: 0.82rem; color: var(--ink-muted); text-decoration: none; padding: 5px 10px; border-radius: 6px; transition: all 0.15s; white-space: nowrap; }
+    nav a:hover, nav a.active { color: var(--accent); background: var(--accent-light); }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; margin-top: 1rem; }
+    .related-card { display: block; background: var(--paper-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.1rem; text-decoration: none; transition: all 0.15s; }
+    .related-card:hover { border-color: var(--accent-border); box-shadow: var(--shadow); transform: translateY(-1px); }
+    .related-card-title { font-size: 0.9rem; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+    .related-card-desc { font-size: 0.78rem; color: var(--ink-muted); }
+    @media (max-width: 480px) { nav { flex-wrap: wrap; } }
     @media (max-width: 480px) {
       header { padding: 0.85rem 1rem; }
       .hero { padding: 2rem 1rem 1.75rem; }
@@ -404,6 +412,12 @@
 
   <header>
     <a class="logo" href="/">Ron<span>uco</span></a>
+    <nav>
+      <a href="/" class="active">Converter</a>
+      <a href="/roman-numerals-1-to-100">1–100</a>
+      <a href="/years">Years</a>
+      <a href="/roman-numerals-chart">Chart</a>
+    </nav>
   </header>
 
   <div class="hero">
@@ -515,10 +529,34 @@
       <ul class="faq-list" id="faq-list"></ul>
     </section>
 
+    <!-- ── EXPLORE MORE ── -->
+    <section class="content-section" aria-labelledby="related-heading">
+      <h2 class="section-title" id="related-heading">Explore More Roman Numeral Tools</h2>
+      <p class="section-intro">Everything Roman numerals — free, fast, and ad-free.</p>
+      <div class="related-grid">
+        <a class="related-card" href="/roman-numerals-1-to-100">
+          <div class="related-card-title">📋 Roman Numerals 1–100</div>
+          <div class="related-card-desc">Complete table from I to C — perfect for students and homework</div>
+        </a>
+        <a class="related-card" href="/years">
+          <div class="related-card-title">📅 Years 1900–2100</div>
+          <div class="related-card-desc">Every year in Roman numerals — tattoos, film copyright, graduation</div>
+        </a>
+        <a class="related-card" href="/roman-numerals-chart">
+          <div class="related-card-title">📊 Full Reference Chart</div>
+          <div class="related-card-desc">All key values from I to MMMCMXCIX — printable reference</div>
+        </a>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <p>© 2026 Ronuco · Free Roman numeral converter · No signup</p>
+    <p>© 2026 <a href="/" style="color:var(--ink-muted);text-decoration:none">Ronuco</a> · 
+    <a href="/roman-numerals-1-to-100" style="color:var(--ink-muted);text-decoration:none">1–100</a> · 
+    <a href="/years" style="color:var(--ink-muted);text-decoration:none">Years</a> · 
+    <a href="/roman-numerals-chart" style="color:var(--ink-muted);text-decoration:none">Chart</a> · 
+    Free Roman numeral converter · No ads, no signup</p>
   </footer>
 
   <script>
